@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard IA - Turismo Caribe Mexicano</title>
+    <title>Agente Turístico Amazing</title>
     
     <!-- Tailwind CSS para estilos rápidos y responsivos -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -248,10 +248,10 @@
                                 </div>
                                 <div>
                                     <h1 className="text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-teal-200">
-                                        Agente Turismo AI
+                                        Agente Turístico Amazing
                                     </h1>
                                     <p className="text-teal-200/80 text-sm font-medium flex items-center gap-2 mt-1">
-                                        <MapPin size={14}/> Cancún & Riviera Maya
+                                        <MapPin size={14}/> Amazing Colors • Cancún & Riviera Maya
                                     </p>
                                 </div>
                             </div>
@@ -365,11 +365,12 @@
                                             <div className="flex items-center gap-3">
                                                 <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 p-[2px]">
                                                     <div className="w-full h-full bg-white rounded-full border-2 border-white overflow-hidden">
-                                                        <img src="https://api.dicebear.com/7.x/initials/svg?seed=TuAgencia&backgroundColor=0d9488" alt="Logo" className="w-full h-full object-cover" />
+                                                        {/* NOTA: Reemplaza esta URL con el enlace directo de tu logo real */}
+                                                        <img src="https://ui-avatars.com/api/?name=Amazing+Colors&background=14b8a6&color=fff&bold=true" alt="Amazing Colors Logo" className="w-full h-full object-cover" />
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <div className="text-xs font-bold text-slate-800">TuAgencia_Oficial</div>
+                                                    <div className="text-xs font-bold text-slate-800">Amazing Colors</div>
                                                     <div className="text-[10px] text-slate-500">{post.ubicacion}</div>
                                                 </div>
                                             </div>
@@ -401,14 +402,19 @@
 
                                         {/* Cuerpo del Post (Copy y Botones) */}
                                         <div className="p-5 flex-1 flex flex-col bg-white">
-                                            <div className="flex gap-4 mb-4">
+                                            <div className="flex gap-4 mb-3">
                                                 <svg aria-label="Me gusta" className="text-slate-800 hover:text-slate-500 cursor-pointer" fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175 2.369 1.175 3.216 0a4.21 4.21 0 0 1 3.693-1.941Z"></path></svg>
                                                 <svg aria-label="Comentar" className="text-slate-800 hover:text-slate-500 cursor-pointer" fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></path></svg>
                                                 <svg aria-label="Compartir" className="text-slate-800 hover:text-slate-500 cursor-pointer" fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24"><line fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></polygon></svg>
                                             </div>
                                             
+                                            {}
+                                            <div className="mb-2">
+                                                <h3 className="text-lg font-black text-slate-900 leading-tight">{post.actividad}</h3>
+                                            </div>
+                                            
                                             <div className="text-sm text-slate-800 whitespace-pre-wrap flex-1 mb-4 font-normal leading-relaxed">
-                                                <span className="font-bold mr-2">TuAgencia_Oficial</span>
+                                                <span className="font-bold mr-2">Amazing Colors</span>
                                                 {post.copy}
                                             </div>
                                             
