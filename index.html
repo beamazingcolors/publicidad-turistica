@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agente Turístico Amazing</title>
     
-    <!-- Favicon del Logo -->
+    <!-- Favicon del Logo Oficial -->
     <link rel="icon" href="Png_Logo%20Vertical%20Texto%20Negro.png" type="image/png">
     
     <!-- Tailwind CSS para estilos rápidos y responsivos -->
@@ -32,7 +32,7 @@
             from { transform: rotate(0deg); } 
             to { transform: rotate(360deg); } 
         }
-        /* Custom scrollbar for a cleaner look */
+        /* Custom scrollbar para una experiencia de navegación premium */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -60,7 +60,6 @@
         const Sparkles = (p) => <Icon {...p} path='<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>' />;
 
         // --- DATOS Y CONOCIMIENTO DEL AGENTE ---
-        // Se amplió la lista base para soportar la generación de al menos 10 posts.
         const actividadesBase = [
             { id: 1, nombre: "Catamarán a Isla Mujeres", ubicacion: "Cancún", demanda: 95, icon: "⛵" },
             { id: 2, nombre: "Río Subterráneo Xcaret", ubicacion: "Riviera Maya", demanda: 91, icon: "🌿" },
@@ -76,54 +75,51 @@
             { id: 12, nombre: "Laguna de los Siete Colores", ubicacion: "Bacalar", demanda: 65, icon: "🚣" },
         ];
 
-        // Imágenes de altísima calidad pre-seleccionadas que simulan el output de la IA
-        // Ampliado para cubrir las nuevas actividades
-        const imagenesIA = {
-            1: "https://images.unsplash.com/photo-1551918120-9739cb430c6d?auto=format&fit=crop&q=80&w=1000", // Catamaran
-            2: "https://images.unsplash.com/photo-1628135894165-5c128af55099?auto=format&fit=crop&q=80&w=1000", // Selva/Rio
-            3: "https://images.unsplash.com/photo-1518182170546-076616fd4aa8?auto=format&fit=crop&q=80&w=1000", // Chichen Itza
-            4: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&q=80&w=1000", // Tortuga
-            5: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&q=80&w=1000", // Fiesta/Noche
-            6: "https://images.unsplash.com/photo-1604928148948-43d9c7336a5a?auto=format&fit=crop&q=80&w=1000", // Cenote
-            7: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1000", // Snorkel
-            8: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&q=80&w=1000", // Parque acuático / Xel Ha
-            9: "https://images.unsplash.com/photo-1544544527-48f108b51d18?auto=format&fit=crop&q=80&w=1000", // Tiburon Ballena (ocean)
-            10: "https://images.unsplash.com/photo-1510097467424-192d711fd8b6?auto=format&fit=crop&q=80&w=1000", // Ruinas Tulum
-            11: "https://images.unsplash.com/photo-1596484552993-9c8e1e35a127?auto=format&fit=crop&q=80&w=1000", // ATV / Selva
-            12: "https://images.unsplash.com/photo-1582967634032-9b2f690466be?auto=format&fit=crop&q=80&w=1000", // Bacalar
+        // Imágenes reales de altísima definición (HD 1200px optimizado) de la web correspondientes a cada actividad
+        const imagenesRealesHD = {
+            1: "https://images.unsplash.com/photo-1551918120-9739cb430c6d?auto=format&fit=crop&q=80&w=1200", // Catamarán navegando en Cancún
+            2: "https://images.unsplash.com/photo-1568402102990-bc541580b59f?auto=format&fit=crop&q=80&w=1200", // Cenote río subterráneo Suytun
+            3: "https://images.unsplash.com/photo-1518638150341-f706e86654de?auto=format&fit=crop&q=80&w=1200", // Pirámide El Castillo Chichén Itzá
+            4: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&q=80&w=1200", // Tortuga marina nadando en Akumal
+            5: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&q=80&w=1200", // Vida nocturna / fiesta espectacular
+            6: "https://images.unsplash.com/photo-1604928148948-43d9c7336a5a?auto=format&fit=crop&q=80&w=1200", // Cenote Tulum con agua cristalina
+            7: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1200", // Snorkel en arrecifes coralinos
+            8: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&q=80&w=1200", // Caleta tropical Xel-Há
+            9: "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&q=80&w=1200", // Majestuoso Tiburón Ballena bajo el agua
+            10: "https://images.unsplash.com/photo-1510097467424-192d711fd8b6?auto=format&fit=crop&q=80&w=1200", // Ruinas de Tulum frente al mar Caribe
+            11: "https://images.unsplash.com/photo-1596484552993-9c8e1e35a127?auto=format&fit=crop&q=80&w=1200", // ATV cuatrimoto en senderos de selva
+            12: "https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&q=80&w=1200", // Laguna de los 7 Colores Bacalar aérea
         };
 
         const generarPosts = (topActividades) => {
-            const emojis = ["✨", "🌴", "🌊", "📸", "🎒", "☀️"];
-            
-            // Ahora generamos posts para las primeras 10 actividades en lugar de solo 3
+            // Generamos posts para las primeras 10 actividades en tendencia
             return topActividades.slice(0, 10).map((act, index) => {
                 let copy = "";
                 let tipo = "";
                 
-                // Variabilidad en los copys dependiendo del puesto en tendencia para no ser repetitivo
+                // Estructuras de copy de alta conversión para venta de tours
                 if (index === 0) {
                     tipo = "Venta Directa 🔥";
-                    copy = `¡Alerta de Tendencia! 🚨\n\nTodos están hablando de: ${act.nombre}. No dejes que te lo cuenten y vive la experiencia más solicitada en ${act.ubicacion}. 🌊🌴\n\n👉 Cupos limitados para esta semana.\n💬 Mándanos DM con la palabra "AVENTURA" para un 15% OFF.\n\nReserva segura y garantizada con nosotros.`;
+                    copy = `¡Alerta de Tendencia en el Caribe! 🚨\n\nTodos están reservando esto hoy: ${act.nombre}. No te quedes fuera de la experiencia más solicitada en ${act.ubicacion}. 🌊🌴\n\n¿Por qué con nosotros?\n✅ Embarcaciones e instalaciones de primer nivel.\n✅ Guías locales bilingües certificados.\n✅ Cancelación flexible ante cualquier imprevisto.\n\n👉 Cupos ultra limitados para esta semana.\n💬 Envíanos un DM con la palabra "PARADISIACO" para recibir un 15% de descuento en tu reserva instantánea.`;
                 } else if (index === 1 || index === 4 || index === 7) {
                     tipo = "Inspiracional ✨";
-                    copy = `Desconecta de la rutina y reconecta con la magia de ${act.ubicacion}. 🍃\n\nNuestra experiencia en ${act.nombre} está diseñada para crear recuerdos que durarán toda la vida. 📸 ¿Con quién compartirías este paraíso?\n\n👇 Etiquétal@ en los comentarios.\n\nLink en nuestra bio para conocer los paquetes.`;
+                    copy = `Escápate de la rutina y sumérgete en el azul de ${act.ubicacion}. 🍃\n\nNuestra excursión exclusiva a ${act.nombre} está cuidadosamente diseñada para conectar con la naturaleza salvaje y crear memorias que durarán toda la vida. 📸 ¿Con quién te gustaría vivir este paraíso terrenal?\n\n👇 Etiquétal@ en los comentarios para mandarle una indirecta.\n\nVisita el enlace de nuestro perfil para descubrir las tarifas de temporada.`;
                 } else if (index === 2 || index === 5 || index === 8) {
-                    tipo = "Informativo 🎒";
-                    copy = `¿Planeando tu viaje a la Península? 📝\n\nAñade ${act.nombre} a tu itinerario. Es una de las joyas mejor guardadas de ${act.ubicacion} y una actividad imperdible esta temporada. ☀️\n\nIncluye transporte, guía certificado y entradas.\n\n📲 Contáctanos por WhatsApp para armar tu paquete ideal.`;
+                    tipo = "Informativo / Tip 🎒";
+                    copy = `¿Preparando tus maletas para el Caribe Mexicano? 📝\n\nApunta esto: ${act.nombre} es una de las joyas más hermosas y obligatorias de tu visita a ${act.ubicacion}. ☀️\n\nConsejo Amazing:\n🎒 Lleva bloqueador biodegradable, calzado cómodo y ropa de cambio. Nosotros nos encargamos de los accesos rápidos, traslados climatizados y la mejor comida regional.\n\n📲 Haz clic en nuestro enlace para chatear directamente por WhatsApp con un asesor experto.`;
                 } else {
                     tipo = "Promocional 🎁";
-                    copy = `Vive ${act.nombre} como nunca antes. 🌟\n\nExplora la belleza oculta de ${act.ubicacion} con nuestros tours privados. Disfruta de la comodidad y exclusividad que mereces. 🥂\n\nReserva anticipadamente y asegura tu lugar en esta aventura inigualable.\n\n👉 ¡Envíanos un mensaje ahora mismo!`;
+                    copy = `Descubre ${act.nombre} con el estándar exclusivo de Amazing Colors. 🌟\n\nVive los secretos de ${act.ubicacion} en un tour completamente coordinado para que tú solo disfrutes del sol y el paisaje. Comodidad, seguridad y momentos incomparables. 🥂\n\n¡Garantiza tu lugar reservando de forma anticipada y olvídate de las filas!\n\n👉 ¡Envíanos un mensaje ahora mismo para cotizar!`;
                 }
 
                 return {
                     id: act.id,
                     actividad: act.nombre,
                     ubicacion: act.ubicacion,
-                    imagenUrl: null, // Comienza sin imagen
+                    imagenUrl: null, // Comienza sin imagen para el efecto de carga secuencial
                     isGeneratingImage: true,
                     copy: copy,
-                    hashtags: `#${act.ubicacion.replace(/\s+/g, '')} #CaribeMexicano #AmazingColorsTours #ViajaPorMexico #Turismo #Vacaciones`,
+                    hashtags: `#${act.ubicacion.replace(/\s+/g, '')} #AmazingColors #CaribeMexicano #CancunTours #RivieraMaya #ViajesMexico #TurismoSostenible`,
                     tipo: tipo
                 };
             });
@@ -134,7 +130,7 @@
             return (
                 <div className="fixed bottom-6 right-6 bg-slate-900/95 backdrop-blur-md text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 z-50 transition-all transform animate-bounce-in border border-slate-700">
                     <Check size={20} className="text-emerald-400" />
-                    <span className="font-medium">{mensaje}</span>
+                    <span className="font-medium text-sm">{mensaje}</span>
                 </div>
             );
         };
@@ -148,54 +144,53 @@
             const [showToast, setShowToast] = useState(false);
 
             useEffect(() => {
-                // Simular una carga inicial
                 actualizarDatos();
             }, []);
 
             const actualizarDatos = () => {
                 setIsSyncing(true);
                 
-                // 1. Simular análisis de datos (demanda)
+                // 1. Simular escaneo de tendencias de turismo (Google Trends, TripAdvisor, Instagram hashtags)
                 setTimeout(() => {
                     const actividadesActualizadas = actividadesBase.map(act => ({
                         ...act,
-                        // Fluctua la demanda aleatoriamente para dar sensación de tiempo real
-                        demanda: Math.min(100, Math.max(60, act.demanda + (Math.floor(Math.random() * 15) - 7)))
+                        // Fluctúa levemente el porcentaje de demanda para dar sensación viva
+                        demanda: Math.min(100, Math.max(60, act.demanda + (Math.floor(Math.random() * 11) - 5)))
                     })).sort((a, b) => b.demanda - a.demanda);
 
                     setActividades(actividadesActualizadas);
                     
-                    // 2. Generar plantillas de texto
+                    // 2. Generar copys promocionales de acuerdo a la nueva tendencia
                     const nuevosPosts = generarPosts(actividadesActualizadas);
                     setPosts(nuevosPosts);
                     setLastSync(new Date());
                     
-                    mostrarToast("Datos actualizados. Generando arte con IA...");
+                    mostrarToast("Datos actualizados. Sincronizando fotos de alta resolución...");
 
-                    // 3. Simular la generación secuencial de imágenes de Nano Banana AI
-                    simularGeneracionImagenes(nuevosPosts);
+                    // 3. Simular la obtención secuencial de imágenes de alta definición de la web
+                    simularCargaImagenes(nuevosPosts);
 
-                }, 1200); // Retraso del scraper
+                }, 1200);
             };
 
-            const simularGeneracionImagenes = async (postsGenerados) => {
+            const simularCargaImagenes = async (postsGenerados) => {
                 for (let i = 0; i < postsGenerados.length; i++) {
                     const post = postsGenerados[i];
                     
-                    // Esperar entre 2 y 3.5 segundos por imagen para simular el procesamiento de IA
-                    const delay = Math.floor(Math.random() * 1500) + 2000;
+                    // Pequeña pausa de 800ms a 1500ms para simular análisis y descarga de alta definición
+                    const delay = Math.floor(Math.random() * 700) + 800;
                     await new Promise(r => setTimeout(r, delay));
 
                     setPosts(currentPosts => 
                         currentPosts.map(p => 
                             p.id === post.id 
-                            ? { ...p, imagenUrl: imagenesIA[p.id], isGeneratingImage: false } 
+                            ? { ...p, imagenUrl: imagenesRealesHD[p.id], isGeneratingImage: false } 
                             : p
                         )
                     );
                 }
                 setIsSyncing(false);
-                mostrarToast("¡Análisis y multimedia 100% listos!");
+                mostrarToast("¡10 publicaciones en Alta Definición listas!");
             };
 
             const mostrarToast = (mensaje) => {
@@ -211,17 +206,17 @@
                 textarea.select();
                 try {
                     document.execCommand('copy');
-                    mostrarToast("¡Texto copiado! Listo para Instagram.");
+                    mostrarToast("¡Texto copiado al portapapeles!");
                 } catch (err) {
                     console.error('Error al copiar', err);
                 }
                 document.body.removeChild(textarea);
             };
 
-            // Descarga segura para evitar problemas de CORS con imágenes externas
+            // Función robusta para forzar la descarga de imágenes externas salvando restricciones CORS
             const descargarImagen = async (url, nombreActividad) => {
                 if (!url) return;
-                mostrarToast("Preparando imagen en alta calidad...");
+                mostrarToast("Preparando descarga de imagen en alta definición...");
                 
                 try {
                     const response = await fetch(url);
@@ -230,24 +225,23 @@
                     
                     const enlace = document.createElement('a');
                     enlace.href = blobUrl;
-                    enlace.download = `Promocion_${nombreActividad.replace(/\s+/g, '_')}.jpg`;
+                    enlace.download = `Amazing_Colors_${nombreActividad.replace(/\s+/g, '_')}_HD.jpg`;
                     document.body.appendChild(enlace);
                     enlace.click();
                     document.body.removeChild(enlace);
                     
                     window.URL.revokeObjectURL(blobUrl);
-                    mostrarToast("¡Descarga completada!");
+                    mostrarToast("¡Imagen HD descargada con éxito!");
                 } catch (error) {
-                    console.error("Error descargando via blob, intentando método fallback", error);
-                    // Fallback si fetch falla por políticas estrictas
+                    console.error("Error al descargar mediante blob, abriendo ventana alternativa...", error);
                     const enlace = document.createElement('a');
                     enlace.href = url;
                     enlace.target = "_blank";
-                    enlace.download = `Promocion_${nombreActividad.replace(/\s+/g, '_')}.jpg`;
+                    enlace.download = `Amazing_Colors_${nombreActividad.replace(/\s+/g, '_')}_HD.jpg`;
                     document.body.appendChild(enlace);
                     enlace.click();
                     document.body.removeChild(enlace);
-                    mostrarToast("Abriendo imagen original para descargar...");
+                    mostrarToast("Abriendo imagen en HD para guardar manualmente...");
                 }
             };
 
@@ -256,66 +250,73 @@
             };
 
             return (
-                <div className="min-h-screen flex flex-col">
+                <div className="min-h-screen flex flex-col bg-slate-50">
                     
-                    {/* ENCABEZADO PREMIUM */}
-                    <header className="bg-gradient-to-r from-slate-900 via-teal-900 to-slate-900 text-white p-6 shadow-xl relative overflow-hidden border-b border-teal-500/30">
-                        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
-                        
+                    {/* ENCABEZADO DE MARCA PREMIUM */}
+                    <header className="bg-gradient-to-r from-slate-950 via-teal-950 to-slate-950 text-white p-6 shadow-xl relative overflow-hidden border-b border-teal-500/20">
                         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
                             <div className="flex items-center gap-4">
-                                <div className="bg-gradient-to-br from-teal-400 to-emerald-500 p-3 rounded-2xl shadow-lg shadow-teal-500/20">
-                                    <Sparkles size={32} className="text-white" />
+                                <div className="bg-white/10 p-2.5 rounded-2xl backdrop-blur-sm border border-white/10 flex items-center justify-center w-16 h-16 shadow-md">
+                                    <img 
+                                        src="Png_Logo%20Vertical%20Texto%20Negro.png" 
+                                        alt="Amazing Colors Logo" 
+                                        className="w-full h-full object-contain brightness-0 invert" 
+                                        onError={(e) => {
+                                            e.target.style.display = 'none';
+                                        }}
+                                    />
                                 </div>
                                 <div>
-                                    <h1 className="text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-teal-200">
+                                    <h1 className="text-3xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-teal-100 to-teal-300">
                                         Agente Turístico Amazing
                                     </h1>
-                                    <p className="text-teal-200/80 text-sm font-medium flex items-center gap-2 mt-1">
-                                        <MapPin size={14}/> Amazing Colors • Cancún & Riviera Maya
+                                    <p className="text-teal-200/70 text-sm font-medium flex items-center gap-2 mt-1">
+                                        <MapPin size={14} className="text-teal-400" />
+                                        Amazing Colors • Cancún & Riviera Maya
                                     </p>
                                 </div>
                             </div>
 
                             <div className="flex flex-col sm:flex-row items-center gap-4 bg-white/5 p-2 rounded-2xl backdrop-blur-md border border-white/10">
-                                <div className="flex items-center gap-2 text-sm text-teal-100 px-3">
-                                    <Clock size={16} />
-                                    <span>Última lectura: <strong>{formatearFecha(lastSync)}</strong></span>
+                                <div className="flex items-center gap-2 text-sm text-teal-100/90 px-3 font-medium">
+                                    <Clock size={16} className="text-teal-400" />
+                                    <span>Escaneo de Mercado: Cada 12h • Último: <strong className="text-white">{formatearFecha(lastSync)}</strong></span>
                                 </div>
                                 <button 
                                     onClick={actualizarDatos}
                                     disabled={isSyncing}
                                     className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 ${
                                         isSyncing 
-                                        ? 'bg-slate-700 text-slate-400 cursor-not-allowed' 
-                                        : 'bg-white text-teal-900 hover:bg-teal-50 hover:scale-105 shadow-[0_0_20px_rgba(20,184,166,0.3)]'
+                                        ? 'bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700/50' 
+                                        : 'bg-teal-500 hover:bg-teal-400 text-white hover:scale-105 shadow-lg shadow-teal-500/20'
                                     }`}
                                 >
                                     <RefreshCw size={18} className={isSyncing ? 'animate-spin' : ''} />
-                                    {isSyncing ? 'Procesando Datos...' : 'Ejecutar Agente'}
+                                    {isSyncing ? 'Actualizando...' : 'Actualizar Agente'}
                                 </button>
                             </div>
                         </div>
                     </header>
 
-                    {/* CONTENIDO PRINCIPAL */}
+                    {/* CONTENIDO DEL PANEL DE CONTROL */}
+                    {}
                     <main className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 w-full flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8">
                         
                         {/* COLUMNA IZQUIERDA: DASHBOARD DE MERCADO */}
                         <section className="lg:col-span-4 space-y-6">
                             <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 sm:p-8">
-                                <div className="flex items-center justify-between mb-8">
-                                    <h2 className="text-xl font-extrabold flex items-center gap-2 text-slate-800">
+                                <div className="flex items-center justify-between mb-6">
+                                    <h2 className="text-xl font-black flex items-center gap-2 text-slate-900">
                                         <TrendingUp size={24} className="text-teal-500" />
                                         Radar de Tendencias
                                     </h2>
                                     <span className="text-xs font-bold bg-teal-50 text-teal-700 px-3 py-1.5 rounded-full border border-teal-100">
-                                        En vivo
+                                        En Vivo
                                     </span>
                                 </div>
 
-                                {/* Se agrega scroll al contenedor de tendencias debido a la mayor cantidad de items */}
-                                <div className="space-y-6 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+                                {/* Contenedor deslizable de las 12 tendencias */}
+                                <div className="space-y-6 max-h-[560px] overflow-y-auto pr-2 custom-scrollbar">
                                     {actividades.map((actividad, index) => (
                                         <div key={actividad.id} className="group">
                                             <div className="flex justify-between items-end mb-2">
@@ -324,17 +325,17 @@
                                                         {actividad.icon}
                                                     </div>
                                                     <div>
-                                                        <h3 className="font-bold text-sm text-slate-800 leading-tight group-hover:text-teal-600 transition-colors">
+                                                        <h3 className="font-extrabold text-sm text-slate-800 leading-tight group-hover:text-teal-600 transition-colors">
                                                             {actividad.nombre}
                                                         </h3>
-                                                        <div className="text-xs text-slate-500 mt-1 font-medium">
-                                                            {actividad.ubicacion}
+                                                        <div className="text-[11px] text-slate-400 mt-0.5 font-semibold flex items-center gap-1">
+                                                            <MapPin size={10} /> {actividad.ubicacion}
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div className="text-right">
-                                                    <span className="text-lg font-black text-teal-600">{actividad.demanda}</span>
-                                                    <span className="text-[10px] text-slate-400 block -mt-1">pts</span>
+                                                    <span className="text-base font-black text-teal-600">{actividad.demanda}</span>
+                                                    <span className="text-[10px] text-slate-400 block -mt-1 font-bold">pts</span>
                                                 </div>
                                             </div>
                                             <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
@@ -347,66 +348,71 @@
                                                     }`}
                                                     style={{ width: `${actividad.demanda}%` }}
                                                 >
-                                                    {/* Shimmer effect */}
-                                                    <div className="absolute top-0 left-0 right-0 bottom-0 bg-white/20 animate-[pulse_2s_ease-in-out_infinite]"></div>
+                                                    <div className="absolute top-0 left-0 right-0 bottom-0 bg-white/20 animate-pulse"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     ))}
                                 </div>
                                 
-                                <div className="mt-8 pt-6 border-t border-slate-100">
+                                <div className="mt-6 pt-6 border-t border-slate-100">
                                     <div className="bg-slate-50 border border-slate-200 p-4 rounded-2xl flex gap-3 items-start">
-                                        <div className="bg-white p-1.5 rounded-lg shadow-sm">
+                                        <div className="bg-white p-2 rounded-lg shadow-sm border border-slate-100">
                                             <Instagram size={18} className="text-pink-500" />
                                         </div>
-                                        <p className="text-xs text-slate-600 leading-relaxed">
-                                            El agente escanea Google Trends y volumen de hashtags en Instagram para determinar las actividades más populares del día.
+                                        <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                                            El agente analiza la popularidad de hashtags, comentarios y búsquedas de tours para estructurar la demanda turística de las próximas horas.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </section>
 
-                        {/* COLUMNA DERECHA: RESULTADOS (POSTS + IMÁGENES) */}
-                        <section className="lg:col-span-8">
-                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+                        {/* COLUMNA DERECHA: RESULTADOS (POSTS + IMÁGENES REALES HD) */}
+                        {}
+                        <section className="lg:col-span-8 space-y-6">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                                 <div>
-                                    <h2 className="text-2xl font-extrabold flex items-center gap-2 text-slate-800">
-                                        Campaña Automática
+                                    <h2 className="text-2xl font-black text-slate-900 flex items-center gap-2">
+                                        Campaña Automática de Contenido
                                     </h2>
-                                    <p className="text-sm text-slate-500 mt-1">Material listo para publicar en redes sociales.</p>
+                                    <p className="text-sm text-slate-500 font-medium">Fotos reales en HD y copys promocionales estructurados para la venta de tours.</p>
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {posts.map((post) => (
-                                    <div key={post.id} className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
+                                    <div key={post.id} className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col h-full hover:shadow-xl transition-all duration-300 group">
                                         
                                         {/* Cabecera del Post (Estilo Instagram) */}
-                                        <div className="p-4 border-b border-slate-100 flex items-center justify-between">
+                                        <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 p-[2px]">
-                                                    <div className="w-full h-full bg-white rounded-full border-2 border-white overflow-hidden flex items-center justify-center p-1">
-                                                        {/* Logo proporcionado */}
-                                                        <img src="Png_Logo%20Vertical%20Texto%20Negro.png" alt="Amazing Colors Logo" className="w-full h-full object-contain" />
+                                                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-teal-400 via-emerald-500 to-cyan-500 p-[2px] shadow-sm flex items-center justify-center overflow-hidden">
+                                                    <div className="w-full h-full bg-white rounded-full border border-white overflow-hidden flex items-center justify-center p-1">
+                                                        <img 
+                                                            src="Png_Logo%20Vertical%20Texto%20Negro.png" 
+                                                            alt="Amazing Colors Logo" 
+                                                            className="w-full h-full object-contain"
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <div className="text-xs font-bold text-slate-800">Amazing Colors</div>
-                                                    <div className="text-[10px] text-slate-500">{post.ubicacion}</div>
+                                                    <div className="text-xs font-black text-slate-800">Amazing Colors</div>
+                                                    <div className="text-[10px] text-slate-400 font-bold flex items-center gap-0.5">
+                                                        <MapPin size={10} className="text-teal-500" /> {post.ubicacion}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        {/* Contenedor de Imagen Generada */}
-                                        <div className="relative aspect-square bg-slate-100 group flex items-center justify-center overflow-hidden border-b border-slate-100">
+                                        {/* Contenedor de Imagen de Alta Definición */}
+                                        <div className="relative aspect-square bg-slate-100 flex items-center justify-center overflow-hidden border-b border-slate-100">
                                             {post.isGeneratingImage ? (
-                                                <div className="flex flex-col items-center gap-4 text-teal-600 w-full h-full justify-center bg-slate-50">
-                                                    <Sparkles size={36} className="animate-spin-slow text-teal-500" />
+                                                <div className="flex flex-col items-center gap-3 text-teal-600 w-full h-full justify-center bg-slate-50">
+                                                    <Sparkles size={32} className="animate-spin-slow text-teal-500" />
                                                     <div className="text-center">
-                                                        <span className="text-sm font-bold text-slate-700 block mb-1">IA en proceso</span>
-                                                        <span className="text-xs text-slate-500 animate-pulse">Renderizando imagen 4k...</span>
+                                                        <span className="text-xs font-bold text-slate-700 block mb-1">Sintonizando Web...</span>
+                                                        <span className="text-[10px] text-slate-400 animate-pulse">Cargando imagen real HD</span>
                                                     </div>
                                                 </div>
                                             ) : (
@@ -417,52 +423,61 @@
                                                 />
                                             )}
                                             
-                                            {/* Etiqueta flotante del tipo de post */}
-                                            <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold tracking-wide uppercase px-3 py-1.5 rounded-full border border-white/20">
+                                            {/* Etiqueta del tipo de post */}
+                                            <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold tracking-wide uppercase px-3.5 py-1.5 rounded-full border border-white/20">
                                                 {post.tipo}
+                                            </div>
+
+                                            <div className="absolute bottom-3 left-3 bg-teal-950/80 backdrop-blur-md text-teal-200 text-[10px] font-black tracking-wide uppercase px-3 py-1 rounded-full border border-teal-500/30">
+                                                Imagen Real HD
                                             </div>
                                         </div>
 
-                                        {/* Cuerpo del Post (Copy y Botones) */}
+                                        {/* Cuerpo del Post (Información, Copy y Acciones) */}
+                                        {}
                                         <div className="p-5 flex-1 flex flex-col bg-white">
-                                            <div className="flex gap-4 mb-3">
-                                                <svg aria-label="Me gusta" className="text-slate-800 hover:text-slate-500 cursor-pointer" fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175 2.369 1.175 3.216 0a4.21 4.21 0 0 1 3.693-1.941Z"></path></svg>
-                                                <svg aria-label="Comentar" className="text-slate-800 hover:text-slate-500 cursor-pointer" fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></path></svg>
-                                                <svg aria-label="Compartir" className="text-slate-800 hover:text-slate-500 cursor-pointer" fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24"><line fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></polygon></svg>
+                                            <div className="flex gap-4 mb-3 text-slate-700">
+                                                <svg aria-label="Me gusta" className="hover:text-red-500 cursor-pointer transition-colors" fill="currentColor" height="22" role="img" viewBox="0 0 24 24" width="22"><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175 2.369 1.175 3.216 0a4.21 4.21 0 0 1 3.693-1.941Z"></path></svg>
+                                                <svg aria-label="Comentar" className="hover:text-slate-500 cursor-pointer transition-colors" fill="currentColor" height="22" role="img" viewBox="0 0 24 24" width="22"><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></path></svg>
+                                                <svg aria-label="Compartir" className="hover:text-teal-500 cursor-pointer transition-colors" fill="currentColor" height="22" role="img" viewBox="0 0 24 24" width="22"><line fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></polygon></svg>
                                             </div>
                                             
-                                            {}
+                                            {/* Nombre de la Actividad justo debajo de los iconos */}
                                             <div className="mb-2">
-                                                <h3 className="text-lg font-black text-slate-900 leading-tight">{post.actividad}</h3>
+                                                <h3 className="text-lg font-black text-slate-950 leading-tight group-hover:text-teal-600 transition-colors">
+                                                    {post.actividad}
+                                                </h3>
                                             </div>
                                             
-                                            <div className="text-sm text-slate-800 whitespace-pre-wrap flex-1 mb-4 font-normal leading-relaxed">
-                                                <span className="font-bold mr-2">Amazing Colors</span>
+                                            {/* Texto o Copy persuasivo */}
+                                            <div className="text-xs text-slate-700 whitespace-pre-wrap flex-1 mb-4 font-normal leading-relaxed">
+                                                <span className="font-bold text-slate-900 mr-2">Amazing Colors</span>
                                                 {post.copy}
                                             </div>
                                             
-                                            <div className="text-xs text-blue-600 font-medium mb-6 leading-tight">
+                                            {/* Hashtags de marca */}
+                                            <div className="text-[11px] text-teal-600 font-bold mb-5 leading-tight">
                                                 {post.hashtags}
                                             </div>
                                             
-                                            {/* Controles de Acción */}
+                                            {/* Controles de Acción para Redes Sociales */}
                                             <div className="mt-auto flex gap-3 pt-4 border-t border-slate-100">
                                                 <button 
                                                     onClick={() => copiarAlPortapapeles(`${post.copy}\n\n${post.hashtags}`)}
-                                                    className="flex-1 flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 py-2.5 rounded-xl text-sm font-bold transition-colors"
+                                                    className="flex-1 flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 py-2.5 rounded-xl text-xs font-bold transition-all border border-slate-200"
                                                 >
-                                                    <Copy size={16} /> Texto
+                                                    <Copy size={14} /> Copiar Texto
                                                 </button>
                                                 <button 
                                                     onClick={() => descargarImagen(post.imagenUrl, post.actividad)}
                                                     disabled={post.isGeneratingImage}
-                                                    className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-colors ${
+                                                    className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold transition-all ${
                                                         post.isGeneratingImage 
-                                                        ? 'bg-slate-50 text-slate-400 cursor-not-allowed' 
+                                                        ? 'bg-slate-50 text-slate-400 cursor-not-allowed border border-slate-100' 
                                                         : 'bg-teal-600 hover:bg-teal-700 text-white shadow-md shadow-teal-500/20'
                                                     }`}
                                                 >
-                                                    <Download size={16} /> Bajar Img
+                                                    <Download size={14} /> Bajar Img HD
                                                 </button>
                                             </div>
                                         </div>
@@ -472,6 +487,7 @@
                         </section>
                     </main>
 
+                    {/* TOAST NOTIFICACIÓN */}
                     <Toast mensaje={toastMessage} visible={showToast} />
                 </div>
             );
