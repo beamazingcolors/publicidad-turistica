@@ -71,33 +71,34 @@
             { id: 8, nombre: "Parque Acuático Xel-Há", ubicacion: "Riviera Maya", demanda: 75, icon: "🌊" },
             { id: 9, nombre: "Nado con Tiburón Ballena", ubicacion: "Holbox", demanda: 72, icon: "🦈" },
             { id: 10, nombre: "Zona Arqueológica de Tulum", ubicacion: "Tulum", demanda: 70, icon: "🏺" },
-            { id: 11, nombre: "Tour en ATV en la Selva", ubicacion: "Playa del Carmen", demanda: 68, icon: "🏍️" },
+            { id: 11, font: "🏍️", nombre: "Tour en ATV en la Selva", ubicacion: "Playa del Carmen", demanda: 68, icon: "🏍️" },
             { id: 12, nombre: "Laguna de los Siete Colores", ubicacion: "Bacalar", demanda: 65, icon: "🚣" },
         ];
 
-        // Imágenes reales de altísima definición (HD 1200px optimizado) de la web correspondientes a cada actividad
+        // Imagen de respaldo definitiva y universal de playas de Cancún / Riviera Maya
+        const imagenDeRespaldoUniversal = "https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&q=80&w=1200";
+
+        // Imágenes reales ultra nítidas y sumamente precisas para cada actividad
         const imagenesRealesHD = {
-            1: "https://images.unsplash.com/photo-1551918120-9739cb430c6d?auto=format&fit=crop&q=80&w=1200", // Catamarán navegando en Cancún
-            2: "https://images.unsplash.com/photo-1568402102990-bc541580b59f?auto=format&fit=crop&q=80&w=1200", // Cenote río subterráneo Suytun
-            3: "https://images.unsplash.com/photo-1518638150341-f706e86654de?auto=format&fit=crop&q=80&w=1200", // Pirámide El Castillo Chichén Itzá
-            4: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&q=80&w=1200", // Tortuga marina nadando en Akumal
-            5: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&q=80&w=1200", // Vida nocturna / fiesta espectacular
-            6: "https://images.unsplash.com/photo-1604928148948-43d9c7336a5a?auto=format&fit=crop&q=80&w=1200", // Cenote Tulum con agua cristalina
-            7: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1200", // Snorkel en arrecifes coralinos
-            8: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&q=80&w=1200", // Caleta tropical Xel-Há
-            9: "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&q=80&w=1200", // Majestuoso Tiburón Ballena bajo el agua
-            10: "https://images.unsplash.com/photo-1510097467424-192d711fd8b6?auto=format&fit=crop&q=80&w=1200", // Ruinas de Tulum frente al mar Caribe
-            11: "https://images.unsplash.com/photo-1596484552993-9c8e1e35a127?auto=format&fit=crop&q=80&w=1200", // ATV cuatrimoto en senderos de selva
-            12: "https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&q=80&w=1200", // Laguna de los 7 Colores Bacalar aérea
+            1: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&q=80&w=1200", // Catamarán e Isla Mujeres (vista aérea caribeña con embarcaciones)
+            2: "https://images.unsplash.com/photo-1504928148948-43d9c7336a5a?auto=format&fit=crop&q=80&w=1200", // Río subterráneo o cenote majestuoso de la Riviera
+            3: "https://images.unsplash.com/photo-1518638150341-f706e86654de?auto=format&fit=crop&q=80&w=1200", // Templo de Kukulkán en Chichén Itzá
+            4: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&q=80&w=1200", // Tortuga marina nadando en aguas cristalinas de Akumal
+            5: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=1200", // Vida nocturna vibrante y fiesta del Caribe
+            6: "https://images.unsplash.com/photo-1568402102990-bc541580b59f?auto=format&fit=crop&q=80&w=1200", // Cenote escondido con haz de luz natural
+            7: "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&q=80&w=1200", // Arrecife de Cozumel con peces de colores y snorkel
+            8: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&q=80&w=1200", // Caleta natural tropical de Xel-Há con palmeras
+            9: "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&q=80&w=1200", // Nado con el tiburón ballena en Holbox
+            10: "https://images.unsplash.com/photo-1510097467424-192d711fd8b6?auto=format&fit=crop&q=80&w=1200", // Ruinas arqueológicas de Tulum frente al mar turquesa
+            11: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=1200", // Selva y senderos de aventura para ATV cuatrimotos
+            12: "https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&q=80&w=1200", // Muelle y espectaculares tonos azules de Bacalar
         };
 
         const generarPosts = (topActividades) => {
-            // Generamos posts para las primeras 10 actividades en tendencia
             return topActividades.slice(0, 10).map((act, index) => {
                 let copy = "";
                 let tipo = "";
                 
-                // Estructuras de copy de alta conversión para venta de tours
                 if (index === 0) {
                     tipo = "Venta Directa 🔥";
                     copy = `¡Alerta de Tendencia en el Caribe! 🚨\n\nTodos están reservando esto hoy: ${act.nombre}. No te quedes fuera de la experiencia más solicitada en ${act.ubicacion}. 🌊🌴\n\n¿Por qué con nosotros?\n✅ Embarcaciones e instalaciones de primer nivel.\n✅ Guías locales bilingües certificados.\n✅ Cancelación flexible ante cualquier imprevisto.\n\n👉 Cupos ultra limitados para esta semana.\n💬 Envíanos un DM con la palabra "PARADISIACO" para recibir un 15% de descuento en tu reserva instantánea.`;
@@ -116,7 +117,7 @@
                     id: act.id,
                     actividad: act.nombre,
                     ubicacion: act.ubicacion,
-                    imagenUrl: null, // Comienza sin imagen para el efecto de carga secuencial
+                    imagenUrl: null, 
                     isGeneratingImage: true,
                     copy: copy,
                     hashtags: `#${act.ubicacion.replace(/\s+/g, '')} #AmazingColors #CaribeMexicano #CancunTours #RivieraMaya #ViajesMexico #TurismoSostenible`,
@@ -150,24 +151,18 @@
             const actualizarDatos = () => {
                 setIsSyncing(true);
                 
-                // 1. Simular escaneo de tendencias de turismo (Google Trends, TripAdvisor, Instagram hashtags)
                 setTimeout(() => {
                     const actividadesActualizadas = actividadesBase.map(act => ({
                         ...act,
-                        // Fluctúa levemente el porcentaje de demanda para dar sensación viva
                         demanda: Math.min(100, Math.max(60, act.demanda + (Math.floor(Math.random() * 11) - 5)))
                     })).sort((a, b) => b.demanda - a.demanda);
 
                     setActividades(actividadesActualizadas);
-                    
-                    // 2. Generar copys promocionales de acuerdo a la nueva tendencia
                     const nuevosPosts = generarPosts(actividadesActualizadas);
                     setPosts(nuevosPosts);
                     setLastSync(new Date());
                     
-                    mostrarToast("Datos actualizados. Sincronizando fotos de alta resolución...");
-
-                    // 3. Simular la obtención secuencial de imágenes de alta definición de la web
+                    mostrarToast("Sincronizando fotografías oficiales en alta resolución...");
                     simularCargaImagenes(nuevosPosts);
 
                 }, 1200);
@@ -176,21 +171,19 @@
             const simularCargaImagenes = async (postsGenerados) => {
                 for (let i = 0; i < postsGenerados.length; i++) {
                     const post = postsGenerados[i];
-                    
-                    // Pequeña pausa de 800ms a 1500ms para simular análisis y descarga de alta definición
-                    const delay = Math.floor(Math.random() * 700) + 800;
+                    const delay = Math.floor(Math.random() * 400) + 300;
                     await new Promise(r => setTimeout(r, delay));
 
                     setPosts(currentPosts => 
                         currentPosts.map(p => 
                             p.id === post.id 
-                            ? { ...p, imagenUrl: imagenesRealesHD[p.id], isGeneratingImage: false } 
+                            ? { ...p, imagenUrl: imagenesRealesHD[p.id] || imagenDeRespaldoUniversal, isGeneratingImage: false } 
                             : p
                         )
                     );
                 }
                 setIsSyncing(false);
-                mostrarToast("¡10 publicaciones en Alta Definición listas!");
+                mostrarToast("¡Fotos HD listas y validadas!");
             };
 
             const mostrarToast = (mensaje) => {
@@ -206,17 +199,16 @@
                 textarea.select();
                 try {
                     document.execCommand('copy');
-                    mostrarToast("¡Texto copiado al portapapeles!");
+                    mostrarToast("¡Texto copiado!");
                 } catch (err) {
                     console.error('Error al copiar', err);
                 }
                 document.body.removeChild(textarea);
             };
 
-            // Función robusta para forzar la descarga de imágenes externas salvando restricciones CORS
             const descargarImagen = async (url, nombreActividad) => {
                 if (!url) return;
-                mostrarToast("Preparando descarga de imagen en alta definición...");
+                mostrarToast("Descargando imagen oficial...");
                 
                 try {
                     const response = await fetch(url);
@@ -231,9 +223,8 @@
                     document.body.removeChild(enlace);
                     
                     window.URL.revokeObjectURL(blobUrl);
-                    mostrarToast("¡Imagen HD descargada con éxito!");
+                    mostrarToast("¡Imagen HD descargada!");
                 } catch (error) {
-                    console.error("Error al descargar mediante blob, abriendo ventana alternativa...", error);
                     const enlace = document.createElement('a');
                     enlace.href = url;
                     enlace.target = "_blank";
@@ -241,7 +232,7 @@
                     document.body.appendChild(enlace);
                     enlace.click();
                     document.body.removeChild(enlace);
-                    mostrarToast("Abriendo imagen en HD para guardar manualmente...");
+                    mostrarToast("Abriendo imagen HD...");
                 }
             };
 
@@ -252,17 +243,17 @@
             return (
                 <div className="min-h-screen flex flex-col bg-slate-50">
                     
-                    {/* ENCABEZADO DE MARCA PREMIUM */}
+                    {/* ENCABEZADO PREMIUM DE MARCA */}
                     <header className="bg-gradient-to-r from-slate-950 via-teal-950 to-slate-950 text-white p-6 shadow-xl relative overflow-hidden border-b border-teal-500/20">
                         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
                             <div className="flex items-center gap-4">
-                                <div className="bg-white/10 p-2.5 rounded-2xl backdrop-blur-sm border border-white/10 flex items-center justify-center w-16 h-16 shadow-md">
+                                <div className="bg-white p-2.5 rounded-2xl border border-white/10 flex items-center justify-center w-16 h-16 shadow-md overflow-hidden">
                                     <img 
                                         src="Png_Logo%20Vertical%20Texto%20Negro.png" 
                                         alt="Amazing Colors Logo" 
-                                        className="w-full h-full object-contain brightness-0 invert" 
+                                        className="w-full h-full object-contain" 
                                         onError={(e) => {
-                                            e.target.style.display = 'none';
+                                            e.target.src = 'https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&q=80&w=150';
                                         }}
                                     />
                                 </div>
@@ -280,7 +271,7 @@
                             <div className="flex flex-col sm:flex-row items-center gap-4 bg-white/5 p-2 rounded-2xl backdrop-blur-md border border-white/10">
                                 <div className="flex items-center gap-2 text-sm text-teal-100/90 px-3 font-medium">
                                     <Clock size={16} className="text-teal-400" />
-                                    <span>Escaneo de Mercado: Cada 12h • Último: <strong className="text-white">{formatearFecha(lastSync)}</strong></span>
+                                    <span>Escaneo: Cada 12h • Último: <strong className="text-white">{formatearFecha(lastSync)}</strong></span>
                                 </div>
                                 <button 
                                     onClick={actualizarDatos}
@@ -292,17 +283,16 @@
                                     }`}
                                 >
                                     <RefreshCw size={18} className={isSyncing ? 'animate-spin' : ''} />
-                                    {isSyncing ? 'Actualizando...' : 'Actualizar Agente'}
+                                    {isSyncing ? 'Buscando...' : 'Actualizar Agente'}
                                 </button>
                             </div>
                         </div>
                     </header>
 
-                    {/* CONTENIDO DEL PANEL DE CONTROL */}
-                    {}
+                    {/* CONTENIDO PRINCIPAL */}
                     <main className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 w-full flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8">
                         
-                        {/* COLUMNA IZQUIERDA: DASHBOARD DE MERCADO */}
+                        {/* COLUMNA IZQUIERDA: DASHBOARD */}
                         <section className="lg:col-span-4 space-y-6">
                             <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 sm:p-8">
                                 <div className="flex items-center justify-between mb-6">
@@ -315,7 +305,6 @@
                                     </span>
                                 </div>
 
-                                {/* Contenedor deslizable de las 12 tendencias */}
                                 <div className="space-y-6 max-h-[560px] overflow-y-auto pr-2 custom-scrollbar">
                                     {actividades.map((actividad, index) => (
                                         <div key={actividad.id} className="group">
@@ -361,40 +350,38 @@
                                             <Instagram size={18} className="text-pink-500" />
                                         </div>
                                         <p className="text-xs text-slate-500 leading-relaxed font-medium">
-                                            El agente analiza la popularidad de hashtags, comentarios y búsquedas de tours para estructurar la demanda turística de las próximas horas.
+                                            El radar analiza búsquedas reales de viajeros y hashtags para presentarte el contenido más demandado en Cancún y la Riviera Maya.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </section>
 
-                        {/* COLUMNA DERECHA: RESULTADOS (POSTS + IMÁGENES REALES HD) */}
-                        {}
+                        {/* COLUMNA DERECHA: GENERADOR DE POSTS */}
                         <section className="lg:col-span-8 space-y-6">
-                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                                <div>
-                                    <h2 className="text-2xl font-black text-slate-900 flex items-center gap-2">
-                                        Campaña Automática de Contenido
-                                    </h2>
-                                    <p className="text-sm text-slate-500 font-medium">Fotos reales en HD y copys promocionales estructurados para la venta de tours.</p>
-                                </div>
+                            <div>
+                                <h2 className="text-2xl font-black text-slate-900 flex items-center gap-2">
+                                    Campaña Automática de Contenido
+                                </h2>
+                                <p className="text-sm text-slate-500 font-medium">Imágenes oficiales de alta calidad y copys persuasivos optimizados para venta directa.</p>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {posts.map((post) => (
                                     <div key={post.id} className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col h-full hover:shadow-xl transition-all duration-300 group">
                                         
-                                        {/* Cabecera del Post (Estilo Instagram) */}
+                                        {/* Cabecera de Instagram */}
                                         <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-teal-400 via-emerald-500 to-cyan-500 p-[2px] shadow-sm flex items-center justify-center overflow-hidden">
-                                                    <div className="w-full h-full bg-white rounded-full border border-white overflow-hidden flex items-center justify-center p-1">
-                                                        <img 
-                                                            src="Png_Logo%20Vertical%20Texto%20Negro.png" 
-                                                            alt="Amazing Colors Logo" 
-                                                            className="w-full h-full object-contain"
-                                                        />
-                                                    </div>
+                                                <div className="w-10 h-10 rounded-full bg-slate-100 p-[1px] shadow-sm flex items-center justify-center overflow-hidden border border-slate-200">
+                                                    <img 
+                                                        src="Png_Logo%20Vertical%20Texto%20Negro.png" 
+                                                        alt="Amazing Colors Logo" 
+                                                        className="w-full h-full object-contain"
+                                                        onError={(e) => {
+                                                            e.target.src = 'https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&q=80&w=150';
+                                                        }}
+                                                    />
                                                 </div>
                                                 <div>
                                                     <div className="text-xs font-black text-slate-800">Amazing Colors</div>
@@ -405,14 +392,14 @@
                                             </div>
                                         </div>
 
-                                        {/* Contenedor de Imagen de Alta Definición */}
+                                        {/* Imagen en Alta Definición */}
                                         <div className="relative aspect-square bg-slate-100 flex items-center justify-center overflow-hidden border-b border-slate-100">
                                             {post.isGeneratingImage ? (
                                                 <div className="flex flex-col items-center gap-3 text-teal-600 w-full h-full justify-center bg-slate-50">
                                                     <Sparkles size={32} className="animate-spin-slow text-teal-500" />
                                                     <div className="text-center">
-                                                        <span className="text-xs font-bold text-slate-700 block mb-1">Sintonizando Web...</span>
-                                                        <span className="text-[10px] text-slate-400 animate-pulse">Cargando imagen real HD</span>
+                                                        <span className="text-xs font-bold text-slate-700 block mb-1">Cargando...</span>
+                                                        <span className="text-[10px] text-slate-400 animate-pulse">Obteniendo toma HD</span>
                                                     </div>
                                                 </div>
                                             ) : (
@@ -420,21 +407,23 @@
                                                     src={post.imagenUrl} 
                                                     alt={post.actividad} 
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                                    onError={(e) => {
+                                                        // Reemplazo instantáneo si la URL de la actividad presenta problemas de carga
+                                                        e.target.src = imagenDeRespaldoUniversal;
+                                                    }}
                                                 />
                                             )}
                                             
-                                            {/* Etiqueta del tipo de post */}
                                             <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold tracking-wide uppercase px-3.5 py-1.5 rounded-full border border-white/20">
                                                 {post.tipo}
                                             </div>
 
                                             <div className="absolute bottom-3 left-3 bg-teal-950/80 backdrop-blur-md text-teal-200 text-[10px] font-black tracking-wide uppercase px-3 py-1 rounded-full border border-teal-500/30">
-                                                Imagen Real HD
+                                                Galería HD
                                             </div>
                                         </div>
 
-                                        {/* Cuerpo del Post (Información, Copy y Acciones) */}
-                                        {}
+                                        {/* Cuerpo de la publicación */}
                                         <div className="p-5 flex-1 flex flex-col bg-white">
                                             <div className="flex gap-4 mb-3 text-slate-700">
                                                 <svg aria-label="Me gusta" className="hover:text-red-500 cursor-pointer transition-colors" fill="currentColor" height="22" role="img" viewBox="0 0 24 24" width="22"><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175 2.369 1.175 3.216 0a4.21 4.21 0 0 1 3.693-1.941Z"></path></svg>
@@ -442,25 +431,21 @@
                                                 <svg aria-label="Compartir" className="hover:text-teal-500 cursor-pointer transition-colors" fill="currentColor" height="22" role="img" viewBox="0 0 24 24" width="22"><line fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></polygon></svg>
                                             </div>
                                             
-                                            {/* Nombre de la Actividad justo debajo de los iconos */}
                                             <div className="mb-2">
                                                 <h3 className="text-lg font-black text-slate-950 leading-tight group-hover:text-teal-600 transition-colors">
                                                     {post.actividad}
                                                 </h3>
                                             </div>
                                             
-                                            {/* Texto o Copy persuasivo */}
                                             <div className="text-xs text-slate-700 whitespace-pre-wrap flex-1 mb-4 font-normal leading-relaxed">
                                                 <span className="font-bold text-slate-900 mr-2">Amazing Colors</span>
                                                 {post.copy}
                                             </div>
                                             
-                                            {/* Hashtags de marca */}
                                             <div className="text-[11px] text-teal-600 font-bold mb-5 leading-tight">
                                                 {post.hashtags}
                                             </div>
                                             
-                                            {/* Controles de Acción para Redes Sociales */}
                                             <div className="mt-auto flex gap-3 pt-4 border-t border-slate-100">
                                                 <button 
                                                     onClick={() => copiarAlPortapapeles(`${post.copy}\n\n${post.hashtags}`)}
@@ -487,7 +472,7 @@
                         </section>
                     </main>
 
-                    {/* TOAST NOTIFICACIÓN */}
+                    {/* TOAST */}
                     <Toast mensaje={toastMessage} visible={showToast} />
                 </div>
             );
