@@ -52,12 +52,17 @@
         const RefreshCw = (p) => <Icon {...p} path='<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>' />;
         const MapPin = (p) => <Icon {...p} path='<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>' />;
         const Instagram = (p) => <Icon {...p} path='<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>' />;
+        const Facebook = (p) => <Icon {...p} path='<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>' />;
+        const TikTok = (p) => <Icon {...p} path='<path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a3 3 0 0 1-3-3v11a7 7 0 1 1-7-7v3a4 4 0 0 0 4 4z"/>' />;
+        const Twitter = (p) => <Icon {...p} path='<path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>' />;
         const TrendingUp = (p) => <Icon {...p} path='<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>' />;
         const Clock = (p) => <Icon {...p} path='<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>' />;
         const Check = (p) => <Icon {...p} path='<polyline points="20 6 9 17 4 12"/>' />;
         const Copy = (p) => <Icon {...p} path='<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>' />;
         const Download = (p) => <Icon {...p} path='<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>' />;
         const Sparkles = (p) => <Icon {...p} path='<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>' />;
+        const Edit3 = (p) => <Icon {...p} path='<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>' />;
+        const XCircle = (p) => <Icon {...p} path='<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>' />;
 
         // --- DATOS Y CONOCIMIENTO DEL AGENTE ---
         const actividadesBase = [
@@ -75,55 +80,48 @@
             { id: 12, nombre: "Laguna de los Siete Colores", ubicacion: "Bacalar", demanda: 65, icon: "🚣" },
         ];
 
-        // Imagen de respaldo definitiva y universal de playas de Cancún / Riviera Maya
+        // Imagen de respaldo por defecto
         const imagenDeRespaldoUniversal = "https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&q=80&w=1200";
 
-        // Imágenes reales ultra nítidas y sumamente precisas para cada actividad
+        // Imágenes EXTREMADAMENTE PRECISAS que corresponden a la actividad real
         const imagenesRealesHD = {
-            1: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&q=80&w=1200", // Catamarán e Isla Mujeres (vista aérea caribeña con embarcaciones)
-            2: "https://images.unsplash.com/photo-1504928148948-43d9c7336a5a?auto=format&fit=crop&q=80&w=1200", // Río subterráneo o cenote majestuoso de la Riviera
-            3: "https://images.unsplash.com/photo-1518638150341-f706e86654de?auto=format&fit=crop&q=80&w=1200", // Templo de Kukulkán en Chichén Itzá
-            4: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&q=80&w=1200", // Tortuga marina nadando en aguas cristalinas de Akumal
-            5: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=1200", // Vida nocturna vibrante y fiesta del Caribe
-            6: "https://images.unsplash.com/photo-1568402102990-bc541580b59f?auto=format&fit=crop&q=80&w=1200", // Cenote escondido con haz de luz natural
-            7: "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&q=80&w=1200", // Arrecife de Cozumel con peces de colores y snorkel
-            8: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&q=80&w=1200", // Caleta natural tropical de Xel-Há con palmeras
-            9: "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&q=80&w=1200", // Nado con el tiburón ballena en Holbox
-            10: "https://images.unsplash.com/photo-1510097467424-192d711fd8b6?auto=format&fit=crop&q=80&w=1200", // Ruinas arqueológicas de Tulum frente al mar turquesa
-            11: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=1200", // Selva y senderos de aventura para ATV cuatrimotos
-            12: "https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&q=80&w=1200", // Muelle y espectaculares tonos azules de Bacalar
+            1: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1200", // Catamarán mar azul
+            2: "https://images.unsplash.com/photo-1682695794816-7b9da18ed470?auto=format&fit=crop&q=80&w=1200", // Cueva submarina / Río subterráneo
+            3: "https://images.unsplash.com/photo-1518638150341-f706e86654de?auto=format&fit=crop&q=80&w=1200", // Ruinas Mayas Chichen Itzá
+            4: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&q=80&w=1200", // Tortuga marina nadando
+            5: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&q=80&w=1200", // Vida nocturna vibrante
+            6: "https://images.unsplash.com/photo-1580974928064-f0aeef70895a?auto=format&fit=crop&q=80&w=1200", // Cenote cerrado con haz de luz
+            7: "https://images.unsplash.com/photo-1544552866-d3ed42536fcb?auto=format&fit=crop&q=80&w=1200", // Snorkel en arrecife
+            8: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&q=80&w=1200", // Caleta natural estilo Xel-Há
+            9: "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&q=80&w=1200", // Tiburón Ballena gigante
+            10: "https://images.unsplash.com/photo-1510097467424-192d711fd8b6?auto=format&fit=crop&q=80&w=1200", // Ruinas de Tulum sobre acantilado
+            11: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=1200", // ATV Cuatrimotos en la selva
+            12: "https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&q=80&w=1200", // Laguna de Bacalar 7 colores
         };
 
-        const generarPosts = (topActividades) => {
-            return topActividades.slice(0, 10).map((act, index) => {
-                let copy = "";
-                let tipo = "";
-                
-                if (index === 0) {
-                    tipo = "Venta Directa 🔥";
-                    copy = `¡Alerta de Tendencia en el Caribe! 🚨\n\nTodos están reservando esto hoy: ${act.nombre}. No te quedes fuera de la experiencia más solicitada en ${act.ubicacion}. 🌊🌴\n\n¿Por qué con nosotros?\n✅ Embarcaciones e instalaciones de primer nivel.\n✅ Guías locales bilingües certificados.\n✅ Cancelación flexible ante cualquier imprevisto.\n\n👉 Cupos ultra limitados para esta semana.\n💬 Envíanos un DM con la palabra "PARADISIACO" para recibir un 15% de descuento en tu reserva instantánea.`;
-                } else if (index === 1 || index === 4 || index === 7) {
-                    tipo = "Inspiracional ✨";
-                    copy = `Escápate de la rutina y sumérgete en el azul de ${act.ubicacion}. 🍃\n\nNuestra excursión exclusiva a ${act.nombre} está cuidadosamente diseñada para conectar con la naturaleza salvaje y crear memorias que durarán toda la vida. 📸 ¿Con quién te gustaría vivir este paraíso terrenal?\n\n👇 Etiquétal@ en los comentarios para mandarle una indirecta.\n\nVisita el enlace de nuestro perfil para descubrir las tarifas de temporada.`;
-                } else if (index === 2 || index === 5 || index === 8) {
-                    tipo = "Informativo / Tip 🎒";
-                    copy = `¿Preparando tus maletas para el Caribe Mexicano? 📝\n\nApunta esto: ${act.nombre} es una de las joyas más hermosas y obligatorias de tu visita a ${act.ubicacion}. ☀️\n\nConsejo Amazing:\n🎒 Lleva bloqueador biodegradable, calzado cómodo y ropa de cambio. Nosotros nos encargamos de los accesos rápidos, traslados climatizados y la mejor comida regional.\n\n📲 Haz clic en nuestro enlace para chatear directamente por WhatsApp con un asesor experto.`;
-                } else {
-                    tipo = "Promocional 🎁";
-                    copy = `Descubre ${act.nombre} con el estándar exclusivo de Amazing Colors. 🌟\n\nVive los secretos de ${act.ubicacion} en un tour completamente coordinado para que tú solo disfrutes del sol y el paisaje. Comodidad, seguridad y momentos incomparables. 🥂\n\n¡Garantiza tu lugar reservando de forma anticipada y olvídate de las filas!\n\n👉 ¡Envíanos un mensaje ahora mismo para cotizar!`;
-                }
+        const obtenerTextoAleatorio = (actividad, ubicacion, redSocial) => {
+            const plantillas = {
+                Instagram: [
+                    `¡Alerta de Tendencia! 🚨 Todos están reservando: ${actividad}. No te quedes fuera de la experiencia más visual y solicitada de ${ubicacion}. 🌊🌴\n\n✅ Transporte climatizado.\n✅ Guías certificados.\n✅ Fotos increíbles garantizadas.\n\n👉 Cupos limitados. DM para promo exclusiva.`,
+                    `Escápate de la rutina hacia el paraíso de ${ubicacion}. 🍃 Nuestra excursión a ${actividad} está diseñada para crear memorias únicas y fotos de envidia. 📸 ¿Con quién te gustaría ir?\n\n👇 Etiquétal@ en los comentarios.\n\nLink en bio para reservar.`,
+                    `¿Maletas listas para ${ubicacion}? 📝 Apunta esto en tu itinerario: ${actividad} es un imperdible. ☀️\n\nNosotros nos encargamos de todo para que tú solo disfrutes.\n\n📲 Envíanos DM con la palabra VIAJE para recibir 10% OFF.`
+                ],
+                Facebook: [
+                    `¿Buscando las mejores vacaciones en familia o con amigos? 👨‍👩‍👧‍👦 Descubre por qué ${actividad} en ${ubicacion} es la opción número uno de esta temporada. Ofrecemos paquetes completos con accesos sin filas, atención de primer nivel y total seguridad.\n\n¡Haz clic en el enlace para ver disponibilidad y precios especiales! ✈️`,
+                    `¡Planifica tu próximo viaje a ${ubicacion} con la agencia experta! 🌊 Hoy te recomendamos realizar ${actividad}. Es una experiencia completa, relajante y llena de diversión garantizada para todas las edades.\n\nDéjanos un comentario o envíanos un inbox si quieres que te compartamos el itinerario detallado. 👇`
+                ],
+                TikTok: [
+                    `POV: Estás viviendo el mejor día de tu vida en ${ubicacion} 🌴✨\n\n(Idea de Video: Mostrar un mini vlog dinámico de ${actividad} con audio en tendencia).\n\nGuarda este video para tus próximas vacaciones. ¡El link de reserva con descuento está en nuestro perfil! 🏃‍♂️💨 #Cancun #Viajes #Trend`,
+                    `3 razones por las que TIENES que hacer ${actividad} si visitas ${ubicacion} 🤯👇\n\n1. Las vistas son irreales 📸\n2. Cero filas reservando con nosotros 🚀\n3. Una experiencia VIP que no olvidarás 🥂\n\nVe al link de nuestro perfil para toda la info.`
+                ],
+                X: [
+                    `Si viajas a ${ubicacion} pronto, tienes que reservar ${actividad}. Literalmente la mejor experiencia de la Riviera. 💯 ¡Aprovecha nuestros cupos de esta semana! Link en bio. 🌊✈️ #Cancun #Travel`,
+                    `¿Día de playa o día de aventura? Con ${actividad} en ${ubicacion} lo tienes todo. 🌴🔥 Reserva hoy tu lugar con Amazing Colors y obtén beneficios. RT si mueres por ir. 👇`
+                ]
+            };
 
-                return {
-                    id: act.id,
-                    actividad: act.nombre,
-                    ubicacion: act.ubicacion,
-                    imagenUrl: null, 
-                    isGeneratingImage: true,
-                    copy: copy,
-                    hashtags: `#${act.ubicacion.replace(/\s+/g, '')} #AmazingColors #CaribeMexicano #CancunTours #RivieraMaya #ViajesMexico #TurismoSostenible`,
-                    tipo: tipo
-                };
-            });
+            const opciones = plantillas[redSocial] || plantillas['Instagram'];
+            return opciones[Math.floor(Math.random() * opciones.length)];
         };
 
         const Toast = ({ mensaje, visible }) => {
@@ -141,6 +139,11 @@
             const [lastSync, setLastSync] = useState(new Date());
             const [actividades, setActividades] = useState([]);
             const [posts, setPosts] = useState([]);
+            
+            // Nuevos estados interactivos
+            const [redSocialActiva, setRedSocialActiva] = useState('Instagram');
+            const [filtroActividadId, setFiltroActividadId] = useState(null);
+            
             const [toastMessage, setToastMessage] = useState("");
             const [showToast, setShowToast] = useState(false);
 
@@ -158,20 +161,32 @@
                     })).sort((a, b) => b.demanda - a.demanda);
 
                     setActividades(actividadesActualizadas);
-                    const nuevosPosts = generarPosts(actividadesActualizadas);
-                    setPosts(nuevosPosts);
+                    generarYSetearPosts(actividadesActualizadas, redSocialActiva);
                     setLastSync(new Date());
                     
-                    mostrarToast("Sincronizando fotografías oficiales en alta resolución...");
-                    simularCargaImagenes(nuevosPosts);
-
+                    mostrarToast("Datos actualizados desde la web.");
                 }, 1200);
+            };
+
+            const generarYSetearPosts = (topActividades, redSocial) => {
+                const nuevosPosts = topActividades.slice(0, 10).map((act) => ({
+                    id: act.id,
+                    actividad: act.nombre,
+                    ubicacion: act.ubicacion,
+                    imagenUrl: null, 
+                    isGeneratingImage: true,
+                    copy: obtenerTextoAleatorio(act.nombre, act.ubicacion, redSocial),
+                    hashtags: `#${act.ubicacion.replace(/\s+/g, '')} #AmazingColors #CaribeMexicano #ViajesMexico`,
+                }));
+                
+                setPosts(nuevosPosts);
+                simularCargaImagenes(nuevosPosts);
             };
 
             const simularCargaImagenes = async (postsGenerados) => {
                 for (let i = 0; i < postsGenerados.length; i++) {
                     const post = postsGenerados[i];
-                    const delay = Math.floor(Math.random() * 400) + 300;
+                    const delay = Math.floor(Math.random() * 300) + 150;
                     await new Promise(r => setTimeout(r, delay));
 
                     setPosts(currentPosts => 
@@ -183,13 +198,36 @@
                     );
                 }
                 setIsSyncing(false);
-                mostrarToast("¡Fotos HD listas y validadas!");
+            };
+
+            const cambiarRedSocial = (nuevaRed) => {
+                setRedSocialActiva(nuevaRed);
+                // Actualiza los copys inmediatamente según la red
+                setPosts(currentPosts => currentPosts.map(p => ({
+                    ...p,
+                    copy: obtenerTextoAleatorio(p.actividad, p.ubicacion, nuevaRed)
+                })));
+                mostrarToast(`Plantillas adaptadas a ${nuevaRed}`);
+            };
+
+            const regenerarCopyUnico = (postId) => {
+                setPosts(currentPosts => currentPosts.map(p => {
+                    if (p.id === postId) {
+                        return { ...p, copy: obtenerTextoAleatorio(p.actividad, p.ubicacion, redSocialActiva) };
+                    }
+                    return p;
+                }));
+                mostrarToast("¡Texto re-generado con éxito!");
+            };
+
+            const toggleFiltro = (id) => {
+                setFiltroActividadId(prevId => prevId === id ? null : id);
             };
 
             const mostrarToast = (mensaje) => {
                 setToastMessage(mensaje);
                 setShowToast(true);
-                setTimeout(() => setShowToast(false), 3500);
+                setTimeout(() => setShowToast(false), 3000);
             };
 
             const copiarAlPortapapeles = (texto) => {
@@ -199,7 +237,7 @@
                 textarea.select();
                 try {
                     document.execCommand('copy');
-                    mostrarToast("¡Texto copiado!");
+                    mostrarToast("¡Texto copiado al portapapeles!");
                 } catch (err) {
                     console.error('Error al copiar', err);
                 }
@@ -208,8 +246,7 @@
 
             const descargarImagen = async (url, nombreActividad) => {
                 if (!url) return;
-                mostrarToast("Descargando imagen oficial...");
-                
+                mostrarToast("Iniciando descarga oficial HD...");
                 try {
                     const response = await fetch(url);
                     const blob = await response.blob();
@@ -217,44 +254,41 @@
                     
                     const enlace = document.createElement('a');
                     enlace.href = blobUrl;
-                    enlace.download = `Amazing_Colors_${nombreActividad.replace(/\s+/g, '_')}_HD.jpg`;
+                    enlace.download = `Amazing_${nombreActividad.replace(/\s+/g, '_')}_HD.jpg`;
                     document.body.appendChild(enlace);
                     enlace.click();
                     document.body.removeChild(enlace);
-                    
                     window.URL.revokeObjectURL(blobUrl);
-                    mostrarToast("¡Imagen HD descargada!");
                 } catch (error) {
                     const enlace = document.createElement('a');
                     enlace.href = url;
                     enlace.target = "_blank";
-                    enlace.download = `Amazing_Colors_${nombreActividad.replace(/\s+/g, '_')}_HD.jpg`;
+                    enlace.download = `Amazing_${nombreActividad.replace(/\s+/g, '_')}_HD.jpg`;
                     document.body.appendChild(enlace);
                     enlace.click();
                     document.body.removeChild(enlace);
-                    mostrarToast("Abriendo imagen HD...");
                 }
             };
 
-            const formatearFecha = (fecha) => {
-                return fecha.toLocaleTimeString('es-MX', { hour: '2-digit', minute:'2-digit' });
-            };
+            const formatearFecha = (fecha) => fecha.toLocaleTimeString('es-MX', { hour: '2-digit', minute:'2-digit' });
+
+            // Renderizado de posts filtrados
+            const postsAMostrar = filtroActividadId 
+                ? posts.filter(p => p.id === filtroActividadId) 
+                : posts;
 
             return (
                 <div className="min-h-screen flex flex-col bg-slate-50">
                     
-                    {/* ENCABEZADO PREMIUM DE MARCA */}
+                    {/* ENCABEZADO */}
                     <header className="bg-gradient-to-r from-slate-950 via-teal-950 to-slate-950 text-white p-6 shadow-xl relative overflow-hidden border-b border-teal-500/20">
                         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
                             <div className="flex items-center gap-4">
-                                <div className="bg-white p-2.5 rounded-2xl border border-white/10 flex items-center justify-center w-16 h-16 shadow-md overflow-hidden">
+                                <div className="bg-white rounded-2xl border border-white/10 flex items-center justify-center w-16 h-16 shadow-md overflow-hidden">
                                     <img 
                                         src="Png_Logo%20Vertical%20Texto%20Negro.png" 
                                         alt="Amazing Colors Logo" 
-                                        className="w-full h-full object-contain" 
-                                        onError={(e) => {
-                                            e.target.src = 'https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&q=80&w=150';
-                                        }}
+                                        className="w-full h-full object-contain p-2" 
                                     />
                                 </div>
                                 <div>
@@ -292,182 +326,189 @@
                     {/* CONTENIDO PRINCIPAL */}
                     <main className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 w-full flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8">
                         
-                        {/* COLUMNA IZQUIERDA: DASHBOARD */}
+                        {/* COLUMNA IZQUIERDA: DASHBOARD INTERACTIVO */}
                         <section className="lg:col-span-4 space-y-6">
                             <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 sm:p-8">
-                                <div className="flex items-center justify-between mb-6">
+                                <div className="flex items-center justify-between mb-4">
                                     <h2 className="text-xl font-black flex items-center gap-2 text-slate-900">
                                         <TrendingUp size={24} className="text-teal-500" />
                                         Radar de Tendencias
                                     </h2>
-                                    <span className="text-xs font-bold bg-teal-50 text-teal-700 px-3 py-1.5 rounded-full border border-teal-100">
-                                        En Vivo
-                                    </span>
-                                </div>
-
-                                <div className="space-y-6 max-h-[560px] overflow-y-auto pr-2 custom-scrollbar">
-                                    {actividades.map((actividad, index) => (
-                                        <div key={actividad.id} className="group">
-                                            <div className="flex justify-between items-end mb-2">
-                                                <div className="flex items-center gap-3">
-                                                    <div className="text-2xl bg-slate-50 w-10 h-10 flex items-center justify-center rounded-xl border border-slate-100 shadow-sm group-hover:scale-110 transition-transform">
-                                                        {actividad.icon}
-                                                    </div>
-                                                    <div>
-                                                        <h3 className="font-extrabold text-sm text-slate-800 leading-tight group-hover:text-teal-600 transition-colors">
-                                                            {actividad.nombre}
-                                                        </h3>
-                                                        <div className="text-[11px] text-slate-400 mt-0.5 font-semibold flex items-center gap-1">
-                                                            <MapPin size={10} /> {actividad.ubicacion}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="text-right">
-                                                    <span className="text-base font-black text-teal-600">{actividad.demanda}</span>
-                                                    <span className="text-[10px] text-slate-400 block -mt-1 font-bold">pts</span>
-                                                </div>
-                                            </div>
-                                            <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                                                <div 
-                                                    className={`h-full rounded-full transition-all duration-1000 ease-out relative ${
-                                                        index === 0 ? 'bg-gradient-to-r from-red-500 to-orange-400' : 
-                                                        index === 1 ? 'bg-gradient-to-r from-orange-400 to-amber-400' :
-                                                        index === 2 ? 'bg-gradient-to-r from-amber-400 to-yellow-400' :
-                                                        'bg-gradient-to-r from-teal-400 to-emerald-400'
-                                                    }`}
-                                                    style={{ width: `${actividad.demanda}%` }}
-                                                >
-                                                    <div className="absolute top-0 left-0 right-0 bottom-0 bg-white/20 animate-pulse"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
                                 </div>
                                 
-                                <div className="mt-6 pt-6 border-t border-slate-100">
-                                    <div className="bg-slate-50 border border-slate-200 p-4 rounded-2xl flex gap-3 items-start">
-                                        <div className="bg-white p-2 rounded-lg shadow-sm border border-slate-100">
-                                            <Instagram size={18} className="text-pink-500" />
-                                        </div>
-                                        <p className="text-xs text-slate-500 leading-relaxed font-medium">
-                                            El radar analiza búsquedas reales de viajeros y hashtags para presentarte el contenido más demandado en Cancún y la Riviera Maya.
-                                        </p>
-                                    </div>
+                                {filtroActividadId && (
+                                    <button 
+                                        onClick={() => setFiltroActividadId(null)}
+                                        className="w-full mb-4 flex items-center justify-center gap-2 text-sm font-bold text-red-500 bg-red-50 py-2 rounded-xl hover:bg-red-100 transition-colors"
+                                    >
+                                        <XCircle size={16} /> Quitar Filtro Seleccionado
+                                    </button>
+                                )}
+
+                                <p className="text-xs text-slate-500 mb-4 font-medium">Haz clic en una actividad para verla individualmente.</p>
+
+                                <div className="space-y-4 max-h-[500px] overflow-y-auto pr-3 custom-scrollbar">
+                                    {actividades.map((actividad, index) => {
+                                        const isActivo = filtroActividadId === actividad.id;
+                                        return (
+                                            <div 
+                                                key={actividad.id} 
+                                                onClick={() => toggleFiltro(actividad.id)}
+                                                className={`group p-3 rounded-2xl border transition-all cursor-pointer ${isActivo ? 'bg-teal-50 border-teal-300 shadow-md' : 'border-slate-100 hover:bg-slate-50 hover:border-slate-200'}`}
+                                            >
+                                                <div className="flex justify-between items-center mb-2">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className={`text-2xl w-10 h-10 flex items-center justify-center rounded-xl border shadow-sm transition-transform ${isActivo ? 'bg-white border-teal-200 scale-110' : 'bg-slate-50 border-slate-100 group-hover:scale-105'}`}>
+                                                            {actividad.icon}
+                                                        </div>
+                                                        <div>
+                                                            <h3 className={`font-extrabold text-sm leading-tight transition-colors ${isActivo ? 'text-teal-700' : 'text-slate-800 group-hover:text-teal-600'}`}>
+                                                                {actividad.nombre}
+                                                            </h3>
+                                                            <div className="text-[11px] text-slate-400 mt-0.5 font-semibold flex items-center gap-1">
+                                                                <MapPin size={10} /> {actividad.ubicacion}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="text-right">
+                                                        <span className="text-base font-black text-teal-600">{actividad.demanda}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="w-full bg-slate-200/60 rounded-full h-1.5 overflow-hidden">
+                                                    <div 
+                                                        className={`h-full rounded-full transition-all duration-1000 ease-out relative ${
+                                                            index === 0 ? 'bg-red-500' : 
+                                                            index === 1 ? 'bg-orange-400' :
+                                                            index === 2 ? 'bg-amber-400' :
+                                                            'bg-teal-400'
+                                                        }`}
+                                                        style={{ width: `${actividad.demanda}%` }}
+                                                    ></div>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         </section>
 
                         {/* COLUMNA DERECHA: GENERADOR DE POSTS */}
-                        <section className="lg:col-span-8 space-y-6">
-                            <div>
-                                <h2 className="text-2xl font-black text-slate-900 flex items-center gap-2">
-                                    Campaña Automática de Contenido
-                                </h2>
-                                <p className="text-sm text-slate-500 font-medium">Imágenes oficiales de alta calidad y copys persuasivos optimizados para venta directa.</p>
+                        <section className="lg:col-span-8 flex flex-col gap-6">
+                            
+                            {/* Pestañas de Redes Sociales */}
+                            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-2 flex flex-wrap gap-2 w-full lg:w-max">
+                                {[
+                                    { nombre: 'Instagram', icono: <Instagram size={18}/> },
+                                    { nombre: 'Facebook', icono: <Facebook size={18}/> },
+                                    { nombre: 'TikTok', icono: <TikTok size={18}/> },
+                                    { nombre: 'X', icono: <Twitter size={18}/> }
+                                ].map(red => (
+                                    <button
+                                        key={red.nombre}
+                                        onClick={() => cambiarRedSocial(red.nombre)}
+                                        className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                                            redSocialActiva === red.nombre 
+                                            ? 'bg-teal-500 text-white shadow-md' 
+                                            : 'text-slate-600 hover:bg-slate-100'
+                                        }`}
+                                    >
+                                        {red.icono} {red.nombre}
+                                    </button>
+                                ))}
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {posts.map((post) => (
-                                    <div key={post.id} className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col h-full hover:shadow-xl transition-all duration-300 group">
+                            {/* Grid de Plantillas */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                                {postsAMostrar.map((post) => (
+                                    <div key={post.id} className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300 group">
                                         
-                                        {/* Cabecera de Instagram */}
-                                        <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-full bg-slate-100 p-[1px] shadow-sm flex items-center justify-center overflow-hidden border border-slate-200">
-                                                    <img 
-                                                        src="Png_Logo%20Vertical%20Texto%20Negro.png" 
-                                                        alt="Amazing Colors Logo" 
-                                                        className="w-full h-full object-contain"
-                                                        onError={(e) => {
-                                                            e.target.src = 'https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&q=80&w=150';
-                                                        }}
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <div className="text-xs font-black text-slate-800">Amazing Colors</div>
-                                                    <div className="text-[10px] text-slate-400 font-bold flex items-center gap-0.5">
-                                                        <MapPin size={10} className="text-teal-500" /> {post.ubicacion}
-                                                    </div>
+                                        {/* Cabecera del Perfil */}
+                                        <div className="p-4 border-b border-slate-100 flex items-center gap-3 bg-slate-50">
+                                            <div className="w-10 h-10 rounded-full bg-slate-100 p-1 shadow-sm flex items-center justify-center overflow-hidden border border-slate-200 bg-white">
+                                                <img 
+                                                    src="Png_Logo%20Vertical%20Texto%20Negro.png" 
+                                                    alt="Amazing Colors Logo" 
+                                                    className="w-full h-full object-contain"
+                                                />
+                                            </div>
+                                            <div>
+                                                <div className="text-xs font-black text-slate-800">Amazing Colors</div>
+                                                <div className="text-[10px] text-slate-400 font-bold flex items-center gap-0.5">
+                                                    {redSocialActiva} • {post.ubicacion}
                                                 </div>
                                             </div>
                                         </div>
 
-                                        {/* Imagen en Alta Definición */}
+                                        {/* Imagen Precisa HD */}
                                         <div className="relative aspect-square bg-slate-100 flex items-center justify-center overflow-hidden border-b border-slate-100">
                                             {post.isGeneratingImage ? (
                                                 <div className="flex flex-col items-center gap-3 text-teal-600 w-full h-full justify-center bg-slate-50">
                                                     <Sparkles size={32} className="animate-spin-slow text-teal-500" />
-                                                    <div className="text-center">
-                                                        <span className="text-xs font-bold text-slate-700 block mb-1">Cargando...</span>
-                                                        <span className="text-[10px] text-slate-400 animate-pulse">Obteniendo toma HD</span>
-                                                    </div>
+                                                    <span className="text-[10px] text-slate-400 animate-pulse font-bold">Buscando Toma Real HD...</span>
                                                 </div>
                                             ) : (
                                                 <img 
                                                     src={post.imagenUrl} 
                                                     alt={post.actividad} 
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                                    onError={(e) => {
-                                                        // Reemplazo instantáneo si la URL de la actividad presenta problemas de carga
-                                                        e.target.src = imagenDeRespaldoUniversal;
-                                                    }}
+                                                    onError={(e) => { e.target.src = imagenDeRespaldoUniversal; }}
                                                 />
                                             )}
-                                            
-                                            <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold tracking-wide uppercase px-3.5 py-1.5 rounded-full border border-white/20">
-                                                {post.tipo}
-                                            </div>
-
-                                            <div className="absolute bottom-3 left-3 bg-teal-950/80 backdrop-blur-md text-teal-200 text-[10px] font-black tracking-wide uppercase px-3 py-1 rounded-full border border-teal-500/30">
-                                                Galería HD
-                                            </div>
                                         </div>
 
-                                        {/* Cuerpo de la publicación */}
+                                        {/* Cuerpo e Interacciones */}
                                         <div className="p-5 flex-1 flex flex-col bg-white">
-                                            <div className="flex gap-4 mb-3 text-slate-700">
-                                                <svg aria-label="Me gusta" className="hover:text-red-500 cursor-pointer transition-colors" fill="currentColor" height="22" role="img" viewBox="0 0 24 24" width="22"><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175 2.369 1.175 3.216 0a4.21 4.21 0 0 1 3.693-1.941Z"></path></svg>
-                                                <svg aria-label="Comentar" className="hover:text-slate-500 cursor-pointer transition-colors" fill="currentColor" height="22" role="img" viewBox="0 0 24 24" width="22"><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></path></svg>
-                                                <svg aria-label="Compartir" className="hover:text-teal-500 cursor-pointer transition-colors" fill="currentColor" height="22" role="img" viewBox="0 0 24 24" width="22"><line fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></polygon></svg>
-                                            </div>
-                                            
-                                            <div className="mb-2">
-                                                <h3 className="text-lg font-black text-slate-950 leading-tight group-hover:text-teal-600 transition-colors">
-                                                    {post.actividad}
-                                                </h3>
-                                            </div>
+                                            <h3 className="text-lg font-black text-slate-950 leading-tight mb-2">
+                                                {post.actividad}
+                                            </h3>
                                             
                                             <div className="text-xs text-slate-700 whitespace-pre-wrap flex-1 mb-4 font-normal leading-relaxed">
-                                                <span className="font-bold text-slate-900 mr-2">Amazing Colors</span>
                                                 {post.copy}
                                             </div>
                                             
-                                            <div className="text-[11px] text-teal-600 font-bold mb-5 leading-tight">
-                                                {post.hashtags}
-                                            </div>
+                                            {redSocialActiva !== 'TikTok' && (
+                                                <div className="text-[11px] text-teal-600 font-bold mb-4 leading-tight">
+                                                    {post.hashtags}
+                                                </div>
+                                            )}
                                             
-                                            <div className="mt-auto flex gap-3 pt-4 border-t border-slate-100">
+                                            {/* Controles de Acción Integrados */}
+                                            <div className="mt-auto flex flex-col gap-2 pt-4 border-t border-slate-100">
                                                 <button 
-                                                    onClick={() => copiarAlPortapapeles(`${post.copy}\n\n${post.hashtags}`)}
-                                                    className="flex-1 flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 py-2.5 rounded-xl text-xs font-bold transition-all border border-slate-200"
+                                                    onClick={() => regenerarCopyUnico(post.id)}
+                                                    className="w-full flex items-center justify-center gap-2 bg-amber-50 hover:bg-amber-100 text-amber-700 py-2 rounded-xl text-xs font-bold transition-all border border-amber-200"
                                                 >
-                                                    <Copy size={14} /> Copiar Texto
+                                                    <Edit3 size={14} /> Cambiar Sugerencia
                                                 </button>
-                                                <button 
-                                                    onClick={() => descargarImagen(post.imagenUrl, post.actividad)}
-                                                    disabled={post.isGeneratingImage}
-                                                    className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold transition-all ${
-                                                        post.isGeneratingImage 
-                                                        ? 'bg-slate-50 text-slate-400 cursor-not-allowed border border-slate-100' 
-                                                        : 'bg-teal-600 hover:bg-teal-700 text-white shadow-md shadow-teal-500/20'
-                                                    }`}
-                                                >
-                                                    <Download size={14} /> Bajar Img HD
-                                                </button>
+                                                
+                                                <div className="flex gap-2">
+                                                    <button 
+                                                        onClick={() => copiarAlPortapapeles(`${post.copy}\n\n${post.hashtags}`)}
+                                                        className="flex-1 flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 py-2 rounded-xl text-xs font-bold transition-all border border-slate-200"
+                                                    >
+                                                        <Copy size={14} /> Copiar
+                                                    </button>
+                                                    <button 
+                                                        onClick={() => descargarImagen(post.imagenUrl, post.actividad)}
+                                                        disabled={post.isGeneratingImage}
+                                                        className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold transition-all ${
+                                                            post.isGeneratingImage 
+                                                            ? 'bg-slate-50 text-slate-400 border border-slate-100' 
+                                                            : 'bg-teal-600 hover:bg-teal-700 text-white shadow-md'
+                                                        }`}
+                                                    >
+                                                        <Download size={14} /> Foto HD
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 ))}
+                                {postsAMostrar.length === 0 && (
+                                    <div className="col-span-full py-12 text-center text-slate-500 font-medium">
+                                        No se encontraron publicaciones. Actualiza el agente.
+                                    </div>
+                                )}
                             </div>
                         </section>
                     </main>
