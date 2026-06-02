@@ -316,6 +316,14 @@
                 mostrarToast("¡Estrategias generadas con éxito!");
             };
 
+            const verPublicacionDeCampana = (id) => {
+                setFiltroActividadId(id); // Filtra el dashboard a esta actividad
+                setCampanasTop3(null);    // Cierra el modal de estrategias
+                mostrarToast("Publicación lista para copiar y compartir.");
+                // Opcional: hacemos scroll hacia arriba suavemente por si el usuario estaba abajo
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
             const formatearFecha = (fecha) => fecha.toLocaleTimeString('es-MX', { hour: '2-digit', minute:'2-digit' });
 
             const postsAMostrar = filtroActividadId 
@@ -559,7 +567,7 @@
                                 <div className="p-6 overflow-y-auto bg-slate-50/50 flex-1">
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                         {campanasTop3.map((campana, i) => (
-                                            <div key={i} className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm relative overflow-hidden">
+                                            <div key={i} className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm relative overflow-hidden flex flex-col">
                                                 <div className="absolute top-0 right-0 bg-slate-900 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl z-10">
                                                     PRIORIDAD #{i + 1}
                                                 </div>
@@ -571,7 +579,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div className="space-y-4">
+                                                <div className="space-y-4 flex-1">
                                                     <div className="bg-blue-50/50 p-3 rounded-xl border border-blue-100">
                                                         <div className="text-[10px] font-bold text-blue-600 uppercase mb-1">Público Objetivo</div>
                                                         <div className="text-xs font-medium text-slate-800">{campana.estrategia.audiencia}</div>
@@ -585,6 +593,14 @@
                                                         <div className="text-xs font-medium text-slate-800">{campana.estrategia.formato}</div>
                                                     </div>
                                                 </div>
+
+                                                <button 
+                                                    onClick={() => verPublicacionDeCampana(campana.id)}
+                                                    className="mt-5 w-full flex items-center justify-center gap-2 bg-teal-50 hover:bg-teal-500 hover:text-white text-teal-700 py-3 rounded-xl text-xs font-bold transition-all border border-teal-200 hover:border-teal-500 group"
+                                                >
+                                                    <Instagram size={16} className="group-hover:scale-110 transition-transform" />
+                                                    Abrir Publicación Generada
+                                                </button>
                                             </div>
                                         ))}
                                     </div>
